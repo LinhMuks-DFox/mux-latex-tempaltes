@@ -1,0 +1,90 @@
+% beamerthememux_default_presentation.sty
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthememux_default_presentation}[2025/04/30 Mux Default Keynote Style v2]
+
+\mode<presentation>
+
+% --- 0. 依赖包 ---
+\RequirePackage{pifont} % 用于特殊的符号，如对勾
+\RequirePackage{xcolor}
+
+% --- 1. 字体与排版基础 ---
+\usefonttheme{default}
+\usefonttheme{structurebold}
+\setbeamerfont{title}{size=\Huge, series=\bfseries}
+\setbeamerfont{subtitle}{size=\Large, series=\mdseries}
+\setbeamerfont{frametitle}{size=\LARGE, series=\bfseries}
+\setbeamerfont{caption}{size=\small}
+
+% --- 2. 颜色配置 (Mux Palette) ---
+\definecolor{MuxBlack}{RGB}{0,0,0}
+\definecolor{MuxGray}{RGB}{100,100,100}
+\definecolor{MuxLightGray}{RGB}{245,245,245} % Box 内容背景极其淡的灰
+
+\setbeamercolor{normal text}{fg=MuxBlack, bg=white}
+\setbeamercolor{structure}{fg=MuxBlack} % 各种结构元素默认为黑
+\setbeamercolor{title}{fg=MuxBlack}
+\setbeamercolor{frametitle}{fg=MuxBlack}
+
+% Block (Box) 颜色定义
+\setbeamercolor{block title}{fg=white, bg=MuxBlack}      % 标题：黑底白字
+\setbeamercolor{block body}{fg=MuxBlack, bg=MuxLightGray} % 内容：淡灰底黑字
+
+% Alert Block (强调框)
+\setbeamercolor{block title alerted}{fg=white, bg=red!80!black}
+\setbeamercolor{block body alerted}{fg=black, bg=red!5}
+
+% --- 3. 列表符号 (Bullet Points) ---
+% 层级 1: 实心大圆点 (经典清晰)
+\setbeamertemplate{itemize item}{\small\raise0.5pt\hbox{\textbullet}}
+% 层级 2: 对勾 (Check mark, 也就是 pifont 的 ding{51}) - 视觉差异极大
+\setbeamertemplate{itemize subitem}{\small\ding{51}}
+% 层级 3: 矩形/短横 (便于区分)
+\setbeamertemplate{itemize subsubitem}{\tiny\ensuremath{\blacksquare}}
+
+% 调整列表缩进和行间距，让阅读更轻松
+\setbeamertemplate{itemize/enumerate body begin}{\setlength{\leftmargini}{1.5em}}
+
+% --- 4. Block (Box) 样式 ---
+% 设置为直角或微圆角，带一点阴影增加层次感（模拟 Keynote 的 Card 效果）
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+% --- 5. 首页设计 (Title Page) - 靠右对齐 ---
+\setbeamertemplate{title page}{
+    \vspace{0.2\paperheight} % 垂直留白
+    \hbox to \textwidth{
+        \hfill % 这一行将内容推到右边
+        \begin{minipage}{0.85\textwidth} % 使用 minipage 控制宽度，防止太靠边
+            \raggedleft % 内部文本右对齐
+            {\usebeamerfont{title}\inserttitle\par}
+            \vspace{0.5em}
+            {\usebeamerfont{subtitle}\insertsubtitle\par}
+            \vspace{2cm}
+            {\usebeamercolor[fg]{structure}\rule{3cm}{2pt}}\par % 一条装饰用的黑线
+            \vspace{0.5em}
+            {\usebeamerfont{author}\insertauthor\par}
+            {\usebeamerfont{date}\insertdate\par}
+        \end{minipage}
+    }
+}
+
+% --- 6. 页眉页脚与杂项 ---
+\setbeamertemplate{navigation symbols}{} % 去掉导航图标
+\setbeamersize{text margin left=1cm, text margin right=1cm}
+
+% 简约页脚：只有页码
+\setbeamertemplate{footline}{
+    \hfill\usebeamerfont{page number in head/foot}%
+    \insertframenumber\kern1em\vskip2ex%
+}
+
+% 帧标题调整
+\setbeamertemplate{frametitle}{
+    \vspace{0.5em}
+    \insertframetitle\par
+    \ifx\insertframesubtitle\@empty\else
+        {\usebeamerfont{framesubtitle}\color{MuxGray}\insertframesubtitle\par}
+    \fi
+}
+
+\mode<all>

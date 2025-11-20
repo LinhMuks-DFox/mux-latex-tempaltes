@@ -1,0 +1,12 @@
+# .pdfmake configuration file
+# Entry file (optional, defaults to auto-detect single .tex file)
+main=test_main.tex
+
+# Output PDF name (optional)
+out=test_main.tex
+
+# Force specific compiler (optional, overrides %!TEX program)
+# compiler=xelatex
+
+# Custom build chain (comma separated)
+tool_chain = xelatex, xelatex, xelatex

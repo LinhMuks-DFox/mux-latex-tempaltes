@@ -1,0 +1,146 @@
+\documentclass[aspectratio=169, 12pt]{beamer}
+\usetheme{mux_default_presentation}
+
+% ==========================================
+%  语言与字体模式选择 (Language Modes)
+%  请只保留一种模式，注释掉其他模式
+% ==========================================
+
+% ---【模式 A: 中文 (Chinese)】---
+% 自动调用系统默认无衬线中文字体 (Mac: 苹方/STHeiti, Win: 微软雅黑)
+\usepackage[UTF8, heading=false]{ctex} 
+
+% ---【模式 B: 日文 (Japanese)】---
+% 需注释掉上面的 ctex，启用下面的 xeCJK
+% \usepackage{xeCJK}
+% \setCJKmainfont{Hiragino Kaku Gothic ProN} % Mac 推荐: 冬青黑体
+% % \setCJKmainfont{Yu Gothic}               % Win 推荐: 游黑体
+% \setCJKsansfont{Hiragino Kaku Gothic ProN} % 强制无衬线
+
+% ---【模式 C: 英文 (English)】---
+% 不需要 ctex 或 xeCJK，建议手动指定 Helvetica 以确保 Keynote 风格
+% \usepackage{fontspec}
+% \setmainfont{Helvetica}
+% \setsansfont{Helvetica}
+
+% ==========================================
+
+% 强制英文字体使用无衬线 (配合上述设置)
+\renewcommand{\familydefault}{\sfdefault} 
+
+% --- 元数据 ---
+\title{Mux Presentation}
+\subtitle{Multilingual Template}
+\author{Mux}
+\date{\today}
+
+\begin{document}
+% ... (后续内容保持不变)
+\begin{document}
+
+% --- 1. 封面 (自动右对齐) ---
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% --- 2. 列表层级展示 ---
+\begin{frame}{逻辑层级 (Hierarchy)}
+    \framesubtitle{测试不同层级的符号辨识度}
+
+    Beamer 列表系统已被修改，以确保最大可读性：
+
+    \vspace{1em}
+
+    \begin{itemize}
+        \item \textbf{一级标题 (实心圆点)}：这是最主要的观点。
+        \item 依然是一级标题，保持整齐。
+              \begin{itemize}
+                  \item \textbf{二级标题 (对勾)}：表示确认、完成或子集。
+                  \item 符号 `checkmark` 具有强烈的视觉引导性。
+                        \begin{itemize}
+                            \item 三级标题 (方块)：用于补充细节参数。
+                            \item 细节不应喧宾夺主。
+                        \end{itemize}
+              \end{itemize}
+        \item 回到一级标题。
+    \end{itemize}
+\end{frame}
+
+% --- 3. 盒子设计 (Box Design) ---
+\begin{frame}{强调区域 (Blocks)}
+    \framesubtitle{用于展示定义、定理或重要提示}
+
+    \begin{columns}[t] % 顶部对齐
+        \column{0.48\textwidth}
+        % 普通盒子
+        \begin{block}{常规设计 (Standard Block)}
+            这是最基础的盒子。\\
+            黑底白字标题 + 淡灰背景。\\
+            适合放置：定义、核心概念。
+        \end{block}
+
+        \vspace{1em}
+
+        % 无标题盒子（默认只有灰色背景）
+        \begin{block}{}
+            这是一个没有标题的 Block，仅作为灰色背景板使用，适合引用一句名言。
+        \end{block}
+
+        \column{0.48\textwidth}
+        % 警告/强调盒子
+        \begin{alertblock}{注意 (Alert Block)}
+            这是用于强调风险或错误的盒子。\\
+            颜色自动变为红色系，引起观众警觉。
+        \end{alertblock}
+
+        \vspace{1em}
+
+        % 示例盒子
+        \begin{exampleblock}{示例 (Example Block)}
+            Beamer 默认的绿色系，适合放代码片段或成功案例。
+        \end{exampleblock}
+    \end{columns}
+\end{frame}
+
+% --- 4. 图文混排 (Layout) - 修复版 ---
+\begin{frame}{图文排版 (Layout)}
+    \framesubtitle{左右分栏是 Keynote 最经典的用法}
+
+    \begin{columns}
+        % 左侧栏
+        \begin{column}{0.6\textwidth}
+            \textbf{排版建议：}
+            \begin{itemize}
+                \item 左侧放要点，右侧放图（或反之）。
+                \item 图片宽度建议设为 \texttt{\textbackslash linewidth}。
+                \item 尽量保持留白，不要填满整个页面。
+            \end{itemize}
+
+            \vspace{1em}
+            \begin{block}{图片说明}
+                使用 columns 环境可以轻松分割页面。
+            \end{block}
+        \end{column}
+
+        % 右侧栏
+        \begin{column}{0.35\textwidth}
+            \centering
+            % 这里的 rule 是个占位符，实际使用时换成 \includegraphics[width=\linewidth]{图片.png}
+            \rule{\linewidth}{5cm}
+            \vspace{0.5em}
+            \par
+            {\tiny 图 1: 占位符示意图}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% --- 5. 结束页 ---
+\begin{frame}
+    \centering
+    \vspace{0.2\paperheight}
+    {\Huge \textbf{Thank You}}\par
+    \vspace{1em}
+    Q \& A
+\end{frame}
+
+\end{document}
