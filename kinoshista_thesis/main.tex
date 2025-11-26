@@ -1,0 +1,25 @@
+\documentclass[a4j, onecolumn, dvipdfmx]{article}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\usepackage[top=10truemm,bottom=20truemm,left=10truemm,right=10truemm]{geometry}
+\usepackage{titlesec}
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\bfseries}
+\usepackage{import}
+\import{./}{package.tex}
+
+\title{The Title}
+\author{
+    Author
+}
+
+\begin{document}
+\maketitle
+
+
+% \import{./sec}{png.tex}
+% \import{./sec}{table.tex}
+\bibliographystyle{IEEEtran}
+\bibliography{refer.bib}
+\end{document}

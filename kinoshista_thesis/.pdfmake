@@ -1,0 +1,4 @@
+# .pdfmake configuration file
+main=main.tex
+# out=FinalPaper
+# tool_chain = xelatex, bibtex, xelatex, xelatex

@@ -1,0 +1,36 @@
+\documentclass[11ptj,a4j,dvipdfmx,uplatex]{jsarticle}
+% \documentclass[10ptj,a4j,fleqn,dvipdfmx,uplatex]{jsarticle} % 数式左寄せ
+\usepackage{ykinolabthesis_eng}
+\usepackage{import}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\graphicspath{{pngs/}}
+
+\degree{\bachelor}% \bachelor, \master, or \doctor
+\titleEN{Feature Extraction via Pre-trained Auto-encoder for Acoustic Scene Classification Using Blinky}
+\dept{Tokai University \\ School of Information Science and Technology \\ Department of Human and Information Science }
+\author{Liu XiaoYang}
+\teacher{Kinosita Yuma Associate Professor/Lecturer}
+
+
+\begin{document}
+\maketitle
+\pagestyle{plain}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\input{sec/00_abstract}
+\newpage
+\tableofcontents
+\listoffigures
+\listoftables
+
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+% \input{sec/sec.tex}
+% \newpage
+% \input{sec/sec.tex}
+\bibliography{refer.bib}
+
+
+\end{document}

@@ -1,0 +1,17 @@
+*.aux
+*.out
+*.log
+*.pdf
+*.fdb_latexmk
+*.fls
+*.gz
+*.bcf
+*.xml
+*.bbl
+*.blg
+*.dvi
+*.rtf
+*.nav
+*.toc
+.DS_Store
+*.snm
